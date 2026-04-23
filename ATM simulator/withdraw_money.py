@@ -1,11 +1,15 @@
+import datetime
+
+
 def withdraw(balance, transaction_history):
     amount_str = input("Enter the amount to withdraw: RS.")
-    amount = float(amount_str)
+    amount = float(amount_str) 
     
     if amount > 0:
         if amount <= balance:
+            time_now = datetime.datetime.now()  
             balance = balance - amount
-            transaction_history.append(f"Withdrew: RS.{amount}")
+            transaction_history.append(f"Withdrew: RS.{amount} at {time_now.strftime('%Y-%m-%d %H:%M:%S')}")
             print(f"\nSuccessfully withdrew RS.{amount}. Your new balance is RS.{balance}")
         else:
             print(f"\nInsufficient funds! Your balance is only RS.{balance}.")
